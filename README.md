@@ -1,1 +1,1 @@
-# SpringJDBC
+# Spring CORE, JDBC

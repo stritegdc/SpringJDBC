@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">	
+  <display-name>Spring JavaConfig</display-name>
+
+  <servlet>
+    <servlet-name>mvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    	<!--spring이 제공하는 DispatcherServlet을 FrontServlet으로 할 것이라 등록.-->
+    <init-param>
+      <param-name>contextClass</param-name>
+      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>kr.or.connect.mvcexam.config.WebMvcContextConfiguration</param-value>
+    	<!--읽어들일 설정파일 등록-->
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mvc</servlet-name>
+    <url-pattern>/</url-pattern> 
+    <!-- "/"의 모든 요청이 들어오면 servlet-name이랑 같은 servlet 클래스가 실행되라.  -->
+  </servlet-mapping>
+
+
+</web-app>
